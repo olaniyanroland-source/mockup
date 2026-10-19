@@ -1,0 +1,10 @@
+{
+  "description": "Showcase custom-made fashion with a visually stunning homepage featuring half-canvas and full-canvas suits, complemented by an engaging hero video.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}
