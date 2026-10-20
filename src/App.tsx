@@ -62,7 +62,7 @@ const steps = [
     title: "Hand finishing",
     text: "Buttonholes, pick stitching, linings and edges are completed with the quiet precision that defines true handmade.",
     image: images.sewing,
-    video: "/media/atelier-hero.mp4",
+    video: "/WhatsApp%20Video%202026-10-20%20at%2015.29.31.mp4",
   },
   {
     number: "06",
