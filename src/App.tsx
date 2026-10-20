@@ -42,6 +42,7 @@ const steps = [
     title: "Cloth selection",
     text: "Choose from a considered library of worsted wool, cashmere, linen and silk sourced from storied European mills.",
     image: images.detail,
+    video: "/media/WhatsApp%20Video%202026-10-20%20at%2015.29.30.mp4",
   },
   {
     number: "03",
@@ -54,12 +55,14 @@ const steps = [
     title: "The first fitting",
     text: "A basted garment reveals balance and line. We pin, mark and sculpt it on the body before final construction begins.",
     image: images.machine,
+    video: "/media/WhatsApp%20Video%202026-10-20%20at%2015.29.30%20%281%29.mp4",
   },
   {
     number: "05",
     title: "Hand finishing",
     text: "Buttonholes, pick stitching, linings and edges are completed with the quiet precision that defines true handmade.",
     image: images.sewing,
+    video: "/media/atelier-hero.mp4",
   },
   {
     number: "06",
@@ -293,7 +296,22 @@ export default function App() {
             {steps.map((step, index) => (
               <article className={`step-card step-${index + 1}`} key={step.number}>
                 <div className="step-image">
-                  <img src={step.image} alt="" />
+                  {step.video ? (
+                    <video
+                      className="step-video"
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      preload="metadata"
+                      poster={step.image}
+                      aria-hidden="true"
+                    >
+                      <source src={step.video} type="video/mp4" />
+                    </video>
+                  ) : (
+                    <img src={step.image} alt="" />
+                  )}
                   <span>{step.number}</span>
                 </div>
                 <p className="step-kicker">Stage {step.number}</p>
