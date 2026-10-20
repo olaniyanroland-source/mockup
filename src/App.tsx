@@ -58,7 +58,7 @@ const steps = [
   {
     number: "05",
     title: "Hand finishing",
-    text: "Buttonholes, pick stitching, linings and edges are completed with the quiet precision that defines true handmadee.",
+    text: "Buttonholes, pick stitching, linings and edges are completed with the quiet precision that defines true handmade.",
     image: images.sewing,
   },
   {
@@ -130,7 +130,7 @@ export default function App() {
           </video>
           <div className="hero-shade" />
           <div className="hero-content">
-            <p className="eyebrow light">Custom made tailoring · Est. 2021</p>
+            <p className="eyebrow light">Handmade tailoring · Est. 2021</p>
             <h1>
               Cut for a life
               <br />
@@ -148,6 +148,55 @@ export default function App() {
             <span>01</span>
             <span className="index-line" />
             <span>06</span>
+          </div>
+        </section>
+
+        <section className="construction-statement section-pad" aria-labelledby="construction-statement-title">
+          <p className="eyebrow light">Our construction philosophy</p>
+          <h2 id="construction-statement-title">
+            TFAWE prioritizes <em>half-canvas and full-canvas construction</em> for better structure,
+            comfort, and longevity.
+          </h2>
+          <p className="statement-index" aria-hidden="true">
+            01 <span /> 02
+          </p>
+          <figure className="canvas-comparison">
+            <img
+              src="/media/canvas-construction-comparison.jpg"
+              alt="Side-by-side comparison showing the internal structure of half-canvas and full-canvas suit jackets"
+            />
+            <figcaption>
+              <span>Half canvas</span>
+              <span>Construction comparison</span>
+              <span>Full canvas</span>
+            </figcaption>
+          </figure>
+        </section>
+
+        <section className="fused-section" aria-labelledby="fused-section-title">
+          <div className="fused-image-wrap">
+            <img
+              src="/media/fused-jacket-construction.jpg"
+              alt="Fused suit jacket showing bubbling and wrinkling across the chest beside its glued internal structure"
+            />
+            <div className="fused-image-label">
+              <span>Fused construction</span>
+              <span>What we avoid / 01</span>
+            </div>
+          </div>
+          <div className="fused-copy">
+            <p className="eyebrow">The construction we refuse</p>
+            <h2 id="fused-section-title">
+              Why we don’t make <em>fused suits.</em>
+            </h2>
+            <p className="fused-lead">
+              Fused jackets can develop bubbles and wrinkles over time, lose their shape after
+              repeated dry cleaning, and feel stiff rather than draping naturally.
+            </p>
+            <div className="fused-standard">
+              <span>Our standard</span>
+              <p>Half canvas. Full canvas. Never fused.</p>
+            </div>
           </div>
         </section>
 
@@ -173,7 +222,7 @@ export default function App() {
 
         <section className="canvas-section" id="canvas">
           <div className="canvas-image-wrap">
-            <img src={images.machine} alt="Bespoke jacket being shaped in the atelier" />
+            <img src={images.machine} alt="Handmade jacket being shaped in the atelier" />
             <div className="image-label">
               <span>Inside the jacket</span>
               <span>Structure / 01</span>
@@ -228,7 +277,7 @@ export default function App() {
         <section className="process section-pad" id="process">
           <div className="process-heading">
             <div>
-              <p className="eyebrow">The handmade journey</p>
+              <p className="eyebrow">The Handmade journey</p>
               <h2>
                 From first measure
                 <br />
