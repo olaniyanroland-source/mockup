@@ -169,10 +169,22 @@ em {
 }
 
 .hero-content {
-  bottom: 11%;
-  left: 8vw;
-  max-width: 830px;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  bottom: 6%;
+  left: 50%;
   position: absolute;
+  text-align: center;
+  transform: translateX(-50%);
+  width: max-content;
+  max-width: 90%;
+}
+
+.hero-content .eyebrow {
+  font-size: 14px;
+  letter-spacing: 0.24em;
 }
 
 .eyebrow {
@@ -234,6 +246,11 @@ em {
 
 .light-link {
   color: var(--white);
+}
+
+.hero-content .text-link {
+  justify-content: center;
+  margin-top: 24px;
 }
 
 .icon {
@@ -336,8 +353,8 @@ em {
 
 .fused-section {
   background: var(--paper);
-  display: grid;
-  grid-template-columns: minmax(0, 1.08fr) minmax(380px, 0.92fr);
+  display: flex;
+  flex-direction: column;
 }
 
 .fused-image-wrap {
@@ -367,8 +384,7 @@ em {
 }
 
 .fused-copy {
-  align-self: center;
-  padding: 110px 8vw;
+  padding: 110px 8vw 72px;
 }
 
 .fused-copy h2 {
@@ -405,6 +421,73 @@ em {
   font-family: "Italiana", serif;
   font-size: 20px;
   text-align: right;
+}
+
+.suit-gallery {
+  background: var(--cream);
+  padding-bottom: 0;
+  padding-top: 0;
+}
+
+.pants-gallery {
+  background: var(--cream);
+  padding-bottom: 130px;
+}
+
+.pants-gallery .suit-gallery-track {
+  margin-top: 0;
+}
+
+.suit-gallery-track {
+  display: grid;
+  gap: 0 3vw;
+  grid-auto-columns: calc((100% - 6vw) / 3);
+  grid-auto-flow: column;
+  margin-top: 0;
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+
+.suit-gallery-track::-webkit-scrollbar {
+  display: none;
+}
+
+.suit-gallery-card {
+  margin: 0;
+  min-width: 0;
+  position: relative;
+  scroll-snap-align: start;
+}
+
+.suit-gallery-card img {
+  aspect-ratio: 4 / 5;
+  filter: saturate(0.78);
+  object-fit: cover;
+}
+
+.suit-gallery-card figcaption {
+  background: rgba(45, 33, 30, 0.82);
+  bottom: 0;
+  color: var(--cream);
+  font-size: 9px;
+  left: 0;
+  letter-spacing: 0.18em;
+  opacity: 0;
+  padding: 16px 18px;
+  position: absolute;
+  text-transform: uppercase;
+  transform: translateY(8px);
+  transition: opacity 180ms ease, transform 180ms ease;
+  width: 100%;
+}
+
+.suit-gallery-card:hover figcaption,
+.suit-gallery-card:focus-visible figcaption,
+.suit-gallery-card:active figcaption {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .intro {
@@ -560,18 +643,20 @@ em {
 .steps-grid {
   align-items: start;
   display: grid;
-  gap: 70px 3vw;
-  grid-template-columns: repeat(12, 1fr);
+  gap: 0 3vw;
+  grid-auto-columns: calc((100% - 6vw) / 3);
+  grid-auto-flow: column;
   margin-top: 100px;
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+  scroll-padding-inline: 1px;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: thin;
 }
 
 .step-card {
-  grid-column: span 4;
-}
-
-.step-card:nth-child(2),
-.step-card:nth-child(5) {
-  margin-top: 90px;
+  min-width: 0;
+  scroll-snap-align: start;
 }
 
 .step-image {
@@ -703,12 +788,12 @@ em {
   background: var(--clay);
   color: var(--white);
   display: grid;
-  grid-template-columns: 1.05fr 0.95fr;
-  min-height: 720px;
+  grid-template-columns: 1fr;
 }
 
 .appointment-copy {
   align-self: center;
+  max-width: 900px;
   padding: 90px 8vw;
 }
 
@@ -724,13 +809,6 @@ em {
   font-size: 14px;
   line-height: 1.8;
   max-width: 480px;
-}
-
-.appointment > img {
-  height: 100%;
-  max-height: 760px;
-  object-fit: cover;
-  object-position: center 20%;
 }
 
 .button-light {
@@ -837,8 +915,8 @@ footer {
   }
 
   .hero-content {
-    left: 6vw;
-    right: 6vw;
+    left: 50%;
+    right: auto;
   }
 
   .section-pad {
@@ -864,11 +942,7 @@ footer {
   }
 
   .intro-grid,
-  .process-heading {
-    gap: 50px;
-    grid-template-columns: 1fr;
-  }
-
+  .process-heading,
   .canvas-section {
     grid-template-columns: 1fr;
   }
@@ -889,13 +963,9 @@ footer {
     min-height: 620px;
   }
 
-  .step-card {
-    grid-column: span 6;
-  }
-
-  .step-card:nth-child(2),
-  .step-card:nth-child(5) {
-    margin-top: 0;
+  .steps-grid {
+    gap: 0 24px;
+    grid-auto-columns: calc((100% - 24px) / 2);
   }
 
   .details {
@@ -908,10 +978,6 @@ footer {
 
   .appointment {
     grid-template-columns: 1fr;
-  }
-
-  .appointment > img {
-    height: 600px;
   }
 
   footer {
@@ -935,14 +1001,6 @@ footer {
 
   .hero h1 {
     font-size: 54px;
-  }
-
-  .hero-index {
-    display: none;
-  }
-
-  .hero-content {
-    bottom: 8%;
   }
 
   .construction-statement {
@@ -989,6 +1047,21 @@ footer {
     padding-top: 90px;
   }
 
+  .suit-gallery {
+    padding-bottom: 0;
+    padding-top: 0;
+  }
+
+  .pants-gallery {
+    padding-bottom: 90px;
+  }
+
+  .suit-gallery-track {
+    margin-top: 0;
+    gap: 0 16px;
+    grid-auto-columns: calc((100% - 16px) / 2);
+  }
+
   .intro h2,
   .canvas-content h2,
   .process h2,
@@ -1013,12 +1086,13 @@ footer {
   }
 
   .steps-grid {
-    display: block;
     margin-top: 60px;
+    gap: 0 16px;
+    grid-auto-columns: calc((100% - 16px) / 2);
   }
 
   .step-card {
-    margin-bottom: 60px;
+    margin-bottom: 0;
   }
 
   .quote-band {
@@ -1045,10 +1119,6 @@ footer {
 
   .appointment-copy {
     padding: 80px 6vw;
-  }
-
-  .appointment > img {
-    height: 480px;
   }
 
   footer {

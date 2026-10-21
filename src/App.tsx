@@ -14,6 +14,28 @@ const images = {
     "https://images.unsplash.com/photo-1628565663674-de1c8161d72c?auto=format&fit=crop&w=1200&q=88",
 };
 
+const suitGallery = [
+  { id: "vS0Kya7E5V4", label: "Half canvas suit" },
+  { id: "Uw3OfKz2J-0", label: "Full canvas suit" },
+  { id: "HgyAIYvMWkw", label: "Half canvas suit" },
+  { id: "hDANeGXvWRw", label: "Full canvas suit" },
+  { id: "YxbwyTb5ijs", label: "Half canvas suit" },
+  { id: "NxtxmmHc2OE", label: "Full canvas suit" },
+  { id: "ZHmES480_XE", label: "Half canvas suit" },
+  { id: "ECJWF1NxSpM", label: "Full canvas suit" },
+];
+
+const pantsGallery = [
+  "-eb0moHDPBI",
+  "2qGXz5A17mc",
+  "tFaLxWkeEnA",
+  "SRBHZzeNi6Q",
+  "1mdpEQXnJ0A",
+  "4L-ZdOiSONs",
+  "Kbl1RYTPIDA",
+  "WNYmTVGVDhA",
+];
+
 const Arrow = ({ diagonal = false }: { diagonal?: boolean }) => (
   <svg aria-hidden="true" viewBox="0 0 24 24" className="icon">
     {diagonal ? (
@@ -94,13 +116,13 @@ export default function App() {
           <a href="#craft" onClick={() => setMenuOpen(false)}>
             The craft
           </a>
-          <a href="#canvas" onClick={() => setMenuOpen(false)}>
+          <a href="#process" onClick={() => setMenuOpen(false)}>
             Our suits
           </a>
           <a href="#process" onClick={() => setMenuOpen(false)}>
             Process
           </a>
-          <a href="#atelier" onClick={() => setMenuOpen(false)}>
+          <a href="#appointment" onClick={() => setMenuOpen(false)}>
             Atelier
           </a>
         </nav>
@@ -129,28 +151,43 @@ export default function App() {
             preload="auto"
             poster={images.suit}
           >
-            <source src="/media/atelier-hero.mp4" type="video/mp4" />
+            <source src="/media/WhatsApp%20Video%202026-10-20%20at%2015.29.30.mp4" type="video/mp4" />
           </video>
           <div className="hero-shade" />
           <div className="hero-content">
-            <p className="eyebrow light">Handmade tailoring · Est. 2021</p>
-            <h1>
-              Cut for a life
-              <br />
-              <em>well lived.</em>
-            </h1>
-            <p className="hero-copy">
-              Hand-cut, hand-shaped and entirely yours. Discover the enduring comfort of a suit made
-              with purpose.
-            </p>
-            <a className="text-link light-link" href="#process">
-              Discover our process <Arrow />
+            <p className="eyebrow light">Custom Made</p>
+            <a className="text-link light-link" href="#appointment">
+              Book an appointment <Arrow />
             </a>
           </div>
-          <div className="hero-index">
-            <span>01</span>
-            <span className="index-line" />
-            <span>06</span>
+        </section>
+
+        <section className="suit-gallery section-pad" aria-label="Suits and jackets gallery">
+          <div className="suit-gallery-track" role="region" aria-label="Suits and jackets gallery" tabIndex={0}>
+            {suitGallery.map((item) => (
+              <figure className="suit-gallery-card" key={item.id} tabIndex={0}>
+                <img
+                  src={`https://unsplash.com/photos/${item.id}/download?force=true`}
+                  alt={item.label}
+                  loading="lazy"
+                />
+                <figcaption>{item.label}</figcaption>
+              </figure>
+            ))}
+          </div>
+        </section>
+
+        <section className="pants-gallery section-pad" aria-label="Tailored pants gallery">
+          <div className="suit-gallery-track" role="region" aria-label="Pants gallery" tabIndex={0}>
+            {pantsGallery.map((id, index) => (
+              <figure className="suit-gallery-card" key={id}>
+                <img
+                  src={`https://unsplash.com/photos/${id}/download?force=true`}
+                  alt={`Tailored pants, photo ${index + 1}`}
+                  loading="lazy"
+                />
+              </figure>
+            ))}
           </div>
         </section>
 
@@ -177,16 +214,6 @@ export default function App() {
         </section>
 
         <section className="fused-section" aria-labelledby="fused-section-title">
-          <div className="fused-image-wrap">
-            <img
-              src="/media/fused-jacket-construction.jpg"
-              alt="Fused suit jacket showing bubbling and wrinkling across the chest beside its glued internal structure"
-            />
-            <div className="fused-image-label">
-              <span>Fused construction</span>
-              <span>What we avoid / 01</span>
-            </div>
-          </div>
           <div className="fused-copy">
             <p className="eyebrow">The construction we refuse</p>
             <h2 id="fused-section-title">
@@ -201,78 +228,14 @@ export default function App() {
               <p>Half canvas. Full canvas. Never fused.</p>
             </div>
           </div>
-        </section>
-
-        <section className="intro section-pad" id="craft">
-          <p className="eyebrow">The Aureline standard</p>
-          <div className="intro-grid">
-            <h2>
-              Not simply made to measure.
-              <br />
-              <em>Made to belong.</em>
-            </h2>
-            <div className="intro-copy">
-              <p>
-                We believe a fine suit should never wear the man. It should move with him, speak
-                quietly for him, and feel familiar from the very first fitting.
-              </p>
-              <a className="text-link" href="#canvas">
-                Explore our construction <Arrow />
-              </a>
-            </div>
-          </div>
-        </section>
-
-        <section className="canvas-section" id="canvas">
-          <div className="canvas-image-wrap">
-            <img src={images.machine} alt="Handmade jacket being shaped in the atelier" />
-            <div className="image-label">
-              <span>Inside the jacket</span>
-              <span>Structure / 01</span>
-            </div>
-          </div>
-          <div className="canvas-content section-pad">
-            <p className="eyebrow">Two expressions of craft</p>
-            <h2>
-              The hidden architecture
-              <br />
-              of a <em>beautiful suit.</em>
-            </h2>
-            <p className="canvas-lead">
-              Canvas is the floating layer between cloth and lining that gives a jacket its shape,
-              movement and longevity. The right construction depends on how you live.
-            </p>
-            <div className="canvas-options">
-              <article>
-                <div className="option-number">01</div>
-                <div>
-                  <h3>Half canvas</h3>
-                  <p>
-                    Natural structure through the chest with a lighter lower body. Supple,
-                    breathable and ideal for everyday versatility.
-                  </p>
-                  <ul>
-                    <li>Horsehair chest piece</li>
-                    <li>Soft, modern drape</li>
-                    <li>40+ hours of craft</li>
-                  </ul>
-                </div>
-              </article>
-              <article>
-                <div className="option-number">02</div>
-                <div>
-                  <h3>Full canvas</h3>
-                  <p>
-                    A hand-padded canvas runs the full length of the jacket, slowly moulding to the
-                    wearer for an unrivalled fit.
-                  </p>
-                  <ul>
-                    <li>Full floating canvas</li>
-                    <li>Exceptional longevity</li>
-                    <li>70+ hours of craft</li>
-                  </ul>
-                </div>
-              </article>
+          <div className="fused-image-wrap">
+            <img
+              src="/media/fused-jacket-construction.jpg"
+              alt="Fused suit jacket showing bubbling and wrinkling across the chest beside its glued internal structure"
+            />
+            <div className="fused-image-label">
+              <span>Fused construction</span>
+              <span>What we avoid / 01</span>
             </div>
           </div>
         </section>
@@ -292,7 +255,7 @@ export default function App() {
               production line. Only patience, skill and a shared pursuit of the exceptional.
             </p>
           </div>
-          <div className="steps-grid">
+          <div className="steps-grid" role="region" aria-label="Handmade journey stages" tabIndex={0}>
             {steps.map((step, index) => (
               <article className={`step-card step-${index + 1}`} key={step.number}>
                 <div className="step-image">
@@ -319,17 +282,6 @@ export default function App() {
                 <p>{step.text}</p>
               </article>
             ))}
-          </div>
-        </section>
-
-        <section className="quote-band" id="atelier">
-          <img src={images.cutting} alt="Tailor cutting cloth by hand" />
-          <div className="quote-card">
-            <p className="eyebrow light">A philosophy in cloth</p>
-            <blockquote>
-              “True luxury is not what is seen. It is the care concealed in every stitch.”
-            </blockquote>
-            <p className="quote-credit">— Matteo Aureline, Master Tailor</p>
           </div>
         </section>
 
@@ -372,7 +324,6 @@ export default function App() {
               Request an appointment <Arrow diagonal />
             </a>
           </div>
-          <img src={images.suit} alt="Man wearing a custom tailored suit" />
         </section>
       </main>
 
